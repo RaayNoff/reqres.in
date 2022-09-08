@@ -1,0 +1,27 @@
+<article
+  class="shadow-2xl pt-4 flex flex-col items-center border rounded-[10px] w-[200px] h-[300px] mr-3 bg-[#17223b]/50"
+>
+  <div
+    [style.background]="resource.color"
+    class="w-10 h-10 rounded-full border"
+  ></div>
+
+  <ul class="w-full pl-8 border-t-[1px] mt-5 pt-5">
+    <li class="item">
+      ID: <span class="item__value">{{ resource.id }}</span>
+    </li>
+    <li class="item">
+      Name: <span class="item__value">{{ resource.name }}</span>
+    </li>
+    <li class="item">
+      Year: <span class="item__value">{{ resource.year }}</span>
+    </li>
+    <li class="item">
+      Color: <span class="item__value">{{ resource.color }}</span>
+    </li>
+    <li class="item">
+      Pantone:
+      <span class="item__value">{{ resource.pantone_value }}</span>
+    </li>
+  </ul>
+</article>

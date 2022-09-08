@@ -1,0 +1,42 @@
+<h1
+  *ngIf="!user && !usersService.isLoading"
+  class="font-bold text-5xl bg-red-600 px-3 py-2 mt-10 rounded-lg"
+>
+  User does not exist!
+</h1>
+
+<app-loader *ngIf="usersService.isLoading"></app-loader>
+
+<article
+  *ngIf="user"
+  class="flex flex-col items-center mt-10 p-3 border rounded w-[600px] bg-[#17223b]/50"
+>
+  <h1 class="font-bold text-3xl border-b-2 mb-9">Detailed info:</h1>
+  <section class="flex w-full">
+    <img
+      class="border rounded-md mr-10 w-[128px] h-[128px] object-cover"
+      [src]="user.avatar"
+      [alt]="user.first_name"
+    />
+    <section>
+      <app-data-editor
+        [data]="user.first_name"
+        dataTitle="Name"
+        property="first_name"
+        [user]="user"
+      ></app-data-editor>
+      <app-data-editor
+        [data]="user.last_name"
+        dataTitle="Last name"
+        property="last_name"
+        [user]="user"
+      ></app-data-editor>
+      <app-data-editor
+        [data]="user.email"
+        dataTitle="Email"
+        property="email"
+        [user]="user"
+      ></app-data-editor>
+    </section>
+  </section>
+</article>

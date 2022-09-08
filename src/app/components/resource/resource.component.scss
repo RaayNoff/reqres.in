@@ -1,0 +1,6 @@
+.item {
+  @apply text-left list-disc font-bold text-[#ff6768];
+}
+.item__value {
+  @apply font-normal;
+}

@@ -1,0 +1,14 @@
+<h1 class="text-center mt-10 font-bold text-3xl">List of users:</h1>
+
+<section
+  *ngIf="usersService.users && !usersService.isLoading"
+  class="p-5 flex flex-wrap justify-center items-center"
+>
+  <app-user *ngFor="let user of usersService.users" [user]="user"></app-user>
+</section>
+
+<h2 *ngIf="usersService.users.length < 1 && !usersService.isLoading">
+  There is no users!
+</h2>
+
+<app-loader *ngIf="usersService.isLoading"></app-loader>

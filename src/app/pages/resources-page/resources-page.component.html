@@ -1,0 +1,13 @@
+<h1 class="text-center mt-10 font-bold text-3xl">List of resources:</h1>
+
+<app-loader *ngIf="resourceService.isLoading"></app-loader>
+
+<section
+  *ngIf="resourceService.resources"
+  class="p-5 flex flex-wrap justify-center items-center"
+>
+  <app-resource
+    *ngFor="let resource of resourceService.resources"
+    [resource]="resource"
+  ></app-resource>
+</section>

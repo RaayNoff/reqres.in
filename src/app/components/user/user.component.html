@@ -1,0 +1,27 @@
+<article
+  (click)="redirectToInfo()"
+  class="shadow-lg bg-[#17223b]/30 border rounded-lg flex items-center flex-col mb-2 w-[250px] min-h-[250px] mr-4 px-4 py-4 hover:cursor-pointer hover:scale-105 transition-all duration-200"
+>
+  <img
+    class="w-[100px] border rounded-[30px] mb-[10px] h-[100px] object-cover"
+    [src]="user.avatar"
+    [alt]="user.first_name"
+  />
+
+  <section class="h-[100px]">
+    <span class="font-bold flex justify-center"
+      >{{ user.id }}.
+      {{ user.first_name }}
+      {{ user.last_name }}
+    </span>
+
+    <p>{{ user.email }}</p>
+  </section>
+
+  <button
+    (click)="delete($event)"
+    class="text-white bg-[#ff6768] px-4 border rounded hover:bg-[#ff6768]/50 transition-all duration-200 ease-in-out"
+  >
+    Delete
+  </button>
+</article>
