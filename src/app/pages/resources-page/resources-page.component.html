@@ -3,7 +3,7 @@
 <app-loader *ngIf="resourceService.isLoading"></app-loader>
 
 <section
-  *ngIf="resourceService.resources"
+  *ngIf="resourceService.resources ?? !resourceService.isLoading"
   class="p-5 flex flex-wrap justify-center items-center"
 >
   <app-resource
