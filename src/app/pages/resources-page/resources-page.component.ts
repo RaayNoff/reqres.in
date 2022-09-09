@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IResource } from 'src/app/models/resource';
 import { ResourcesService } from 'src/app/services/resources.service';
 
@@ -7,10 +8,15 @@ import { ResourcesService } from 'src/app/services/resources.service';
   templateUrl: './resources-page.component.html',
   styleUrls: ['./resources-page.component.scss'],
 })
-export class ResourcesPageComponent implements OnInit {
+export class ResourcesPageComponent implements OnInit, OnDestroy {
+  aSub: Subscription;
+
   constructor(public resourceService: ResourcesService) {}
 
   ngOnInit(): void {
-    this.resourceService.getAll().subscribe();
+    this.aSub = this.resourceService.getAll().subscribe();
+  }
+  ngOnDestroy(): void {
+    if (this.aSub) this.aSub.unsubscribe();
   }
 }

@@ -1,0 +1,68 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="border rounded-md w-[500px] h-[300px] bg-[#17223b]/50 mt-20 flex flex-col items-center"
+>
+  <h2 class="font-bold text-2xl text-center mt-5 mb-6">Log-in</h2>
+  <section class="input">
+    <label class="input__label" for="email">Email</label>
+    <input
+      class="input__field"
+      id="email"
+      type="email"
+      required
+      formControlName="email"
+      placeholder="example@mail.ru"
+    />
+    <span
+      *ngIf="form.get('email')?.errors && form.get('email')?.touched"
+      class="input__helper"
+    >
+      <span *ngIf="form.get('email').errors['required']" class="input__error">
+        Email should not be empty
+      </span>
+      <span class="input__error" *ngIf="form.get('email').errors['email']">
+        Enter the correct email address
+      </span>
+    </span>
+  </section>
+  <section class="input">
+    <label class="input__label" for="password">Password</label>
+    <input
+      formControlName="password"
+      class="input__field"
+      placeholder="qwerty1234"
+      id="password"
+      type="password"
+      autocomplete
+    />
+    <span
+      *ngIf="form.get('password')?.errors && form.get('password')?.touched"
+      class="input__helper"
+    >
+      <span
+        *ngIf="form.get('password').errors['required']"
+        class="input__error"
+      >
+        Password should not be empty
+      </span>
+      <span
+        class="input__error"
+        *ngIf="
+          form.get('password')?.errors['minlength'] &&
+          form.get('password')?.errors['minlength']['requiredLength']
+        "
+      >
+        The password must be greater than
+        {{ form.get("password")?.errors["minlength"]["requiredLength"] }}
+      </span>
+    </span>
+  </section>
+  <button
+    [disabled]="form.invalid || form.disabled"
+    type="submit"
+    class="text-white bg-[#ff6768] px-10 py-1 border rounded hover:bg-[#ff6768]/50 transition-all duration-200 ease-in-out disabled:bg-slate-500"
+  >
+    Login
+  </button>
+</form>

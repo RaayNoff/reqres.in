@@ -1,0 +1,15 @@
+.input {
+  @apply flex flex-col mb-5 border-collapse;
+
+  &__label {
+    @apply text-white;
+  }
+
+  &__field {
+    @apply py-1 px-2 rounded-md text-[#414c64];
+
+    &:focus {
+      @apply outline-none;
+    }
+  }
+}

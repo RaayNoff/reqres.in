@@ -1,12 +1,23 @@
 <nav
   class="shadow-2xl absolute px-5 top-0 left-0 bg-[#ff6768] w-screen h-[50px] flex justify-between items-center"
 >
-  <h1 class="text-white font-bold text-3xl"><a routerLink="/">TestTask</a></h1>
+  <h1 class="text-white font-bold text-3xl">
+    <a *ngIf="this.auth.isAuthenticated()" routerLink="users">TestTask</a>
+    <a *ngIf="!this.auth.isAuthenticated()" routerLink="login">TestTask</a>
+  </h1>
 
-  <span>
-    <a routerLink="/" class="nav__item">Users</a>
-    <a routerLink="resources" routerLinkActive="" class="nav__item"
+  <span *ngIf="this.auth.isAuthenticated()" class="flex">
+    <a routerLink="users" routerLinkActive="active" class="nav__item">Users</a>
+    <a routerLink="resources" routerLinkActive="active" class="nav__item"
       >Resources</a
+    >
+    <button class="nav__item" (click)="onLogout()">Logout</button>
+  </span>
+
+  <span *ngIf="!this.auth.isAuthenticated()">
+    <a routerLink="login" routerLinkActive="active" class="nav__item">Login</a>
+    <a routerLink="register" routerLinkActive="active" class="nav__item"
+      >Registration</a
     >
   </span>
 </nav>

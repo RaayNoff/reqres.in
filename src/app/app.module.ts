@@ -14,6 +14,10 @@ import { DataEditorComponent } from './components/data-editor/data-editor.compon
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
+import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { LoaderComponent } from './components/loader/loader.component';
     UserInfoPageComponent,
     DataEditorComponent,
     LoaderComponent,
+    LoginPageComponent,
+    AuthLayoutComponent,
+    SiteLayoutComponent,
+    RegistrationPageComponent,
   ],
   imports: [
     BrowserModule,
