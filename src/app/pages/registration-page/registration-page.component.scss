@@ -13,3 +13,7 @@
     }
   }
 }
+
+.input__error {
+  @apply text-red-600 absolute;
+}
