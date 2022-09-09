@@ -6,6 +6,7 @@
 ## About
 
 > The project was made as a test task.
+> All documentation about interaction with the api is here: https://reqres.in
 
 ## List of technologies and tools
 
