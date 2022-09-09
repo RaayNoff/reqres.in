@@ -19,6 +19,10 @@
       [alt]="user.first_name"
     />
     <section>
+      <section class="flex items-end">
+        <p class="font-bold text-xl mr-3 text-[#ff6768]">Identifier:</p>
+        <p>{{ user.id }}</p>
+      </section>
       <app-data-editor
         [data]="user.first_name"
         dataTitle="Name"
